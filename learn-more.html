@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn More · NRJI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Archivo+Expanded:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nrji-shared.css">
+<style>
+  .lm-sec{padding:clamp(44px,5vw,84px) var(--pad-x);position:relative;z-index:1;}
+  .lm-sec p{color:#EAEAEF;}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(30px,3.4vw,48px);}
+  .sec-head h2{font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:var(--t-h2);line-height:1;}
+  .sec-head .num{font-family:var(--font-display);font-weight:800;font-size:14px;letter-spacing:.2em;color:var(--fg-faint);}
+
+  .intro{font-size:var(--t-lead);line-height:1.55;max-width:62ch;color:#EAEAEF;}
+  .intro strong{color:#fff;font-weight:700;}
+
+  /* method stages, detailed rows */
+  .stages{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+  .srow{background:var(--ink);display:grid;grid-template-columns:0.6fr 1.4fr;gap:clamp(20px,3vw,56px);padding:clamp(26px,2.8vw,44px);align-items:start;position:relative;}
+  .srow::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c);}
+  .srow .stg{font-size:13px;text-transform:uppercase;letter-spacing:.2em;font-weight:700;color:var(--fg-faint);margin-bottom:12px;}
+  .srow h3{font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:clamp(28px,3vw,46px);line-height:0.96;color:var(--c);}
+  .srow p{font-size:var(--t-body);line-height:1.6;}
+  @media (max-width:720px){.srow{grid-template-columns:1fr;gap:14px;}}
+
+  /* four tools */
+  .tools{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .tcell{background:var(--ink);padding:clamp(26px,2.6vw,40px);position:relative;}
+  .tcell::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--c);}
+  .tcell h3{font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:var(--t-h3);margin-bottom:12px;color:var(--c);}
+  .tcell p{font-size:var(--t-small);line-height:1.55;}
+  @media (max-width:620px){.tools{grid-template-columns:1fr;}}
+
+  /* science two-col */
+  .sci{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(34px,5vw,76px);align-items:start;}
+  .sci h2{font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:var(--t-h1);line-height:1;}
+  .sci p{font-size:var(--t-lead);line-height:1.6;}
+  .sci p + p{margin-top:18px;}
+  .sci strong{color:#fff;font-weight:700;}
+  @media (max-width:760px){.sci{grid-template-columns:1fr;gap:26px;}}
+
+  /* testimonials marquee */
+  .quote-marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+  .quote-track{display:flex;align-items:stretch;gap:1px;width:max-content;background:var(--line);border-block:1px solid var(--line);animation:quote-scroll 46s linear infinite;}
+  @media (hover:hover) and (pointer:fine){.quote-marquee:hover .quote-track{animation-play-state:paused;}}
+  @keyframes quote-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion:reduce){.quote-track{animation:none;}}
+  .tq{flex:0 0 clamp(300px,30vw,420px);background:var(--black);padding:clamp(28px,2.8vw,44px);display:flex;flex-direction:column;gap:22px;}
+  .tq .q{font-family:var(--font-display);font-weight:700;font-size:clamp(20px,2vw,30px);line-height:1.1;}
+  .tq .who{display:flex;align-items:center;gap:12px;margin-top:auto;}
+  .tq .who .dot{width:10px;height:10px;border-radius:50%;background:var(--brand-grad);flex-shrink:0;}
+  .tq .who .nm{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--fg-faint);}
+
+  .lm-cta{text-align:center;padding:clamp(52px,6vw,96px) var(--pad-x);}
+  .lm-cta h2{font-size:var(--t-h1);margin-bottom:clamp(26px,3vw,40px);}
+  .lm-cta .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* footer (matches homepage) */
+</style>
+</head>
+<body>
+  <div id="aurora"></div>
+
+  <!-- NAV -->
+  <nav class="nav" data-screen-label="Nav">
+    <a class="brand" href="index.html">
+      <img src="assets/nrji-logo-clean.png" alt="NRJI">
+    </a>
+    <div class="links">
+      <a class="hide-sm" href="index.html#method">The Method</a>
+      <a class="hide-sm" href="index.html#founder">Founder</a>
+      <a href="press.html">Press</a>
+      <a class="hide-sm" href="bring-nrji.html">Bring NRJI</a>
+      <a class="btn btn-primary" href="waitlist.html">Join the waitlist</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="phero" data-screen-label="Learn More Hero">
+    <a class="back" href="index.html"><span>&larr;</span> Back to NRJI</a>
+    <span class="eyebrow" data-reveal>Learn more</span>
+    <h1 class="display" data-reveal style="--rd:80ms">What <span class="grad-text">Energy Training</span> really is</h1>
+    <p class="lead" data-reveal style="--rd:150ms">The full picture, the method, the science and the voices behind it. NRJI treats energy as a trainable resource: not a mood, not a given.</p>
+  </section>
+
+  <!-- THE METHOD IN FULL -->
+  <section class="lm-sec" data-screen-label="The Method In Full">
+    <div class="wrap">
+      <div class="sec-head" data-reveal><h2>The NRJI Method</h2></div>
+      <p class="intro" data-reveal style="margin-bottom:clamp(30px,3.4vw,48px);">Every session moves you through four stages. <strong>The workout is the vehicle; identity change is the destination.</strong> This is the proprietary path from meeting pressure to walking out as someone with new evidence of who they are.</p>
+      <div class="stages" data-reveal="scale">
+        <div class="srow" style="--c:#1AA7FF"><div><div class="stg">Stage one</div><h3>Pressure</h3></div><p>You meet the moment the body recognises as real load, and learn to stay in it rather than flinch away. Pressure stops being something that happens to you and becomes something you can hold.</p></div>
+        <div class="srow" style="--c:#9A2BE2"><div><div class="stg">Stage two</div><h3>Courage</h3></div><p>With the nervous system regulated, you move toward the edge instead of away from it. Courage is trained here as a repeatable choice, not a personality trait you either have or don't.</p></div>
+        <div class="srow" style="--c:#FF2D8F"><div><div class="stg">Stage three</div><h3>Self-trust</h3></div><p>You prove to yourself, in real time, that you can. Each rep becomes embodied evidence, the felt, undeniable experience of being more capable than you thought.</p></div>
+        <div class="srow" style="--c:#FF6A26"><div><div class="stg">Stage four</div><h3>Identity shift</h3></div><p>You walk out as someone with new evidence of who they are. The shift carries into work, relationships and life, because your identity decides what happens next.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUR TOOLS -->
+  <section class="lm-sec" data-screen-label="The Four Tools">
+    <div class="wrap">
+      <div class="sec-head" data-reveal><h2>Four tools, one inner champion</h2></div>
+      <p class="intro" data-reveal style="margin-bottom:clamp(30px,3.4vw,48px);">Each session combines four evidence-led tools into one immersive experience, designed to <strong>transform your inner critic into your inner champion.</strong></p>
+      <div class="tools" data-reveal="scale">
+        <div class="tcell" style="--c:#FF2D8F"><h3>Movement</h3><p>Push to your physical threshold so the body recognises real load, and learns to stay in it with clarity.</p></div>
+        <div class="tcell" style="--c:#FF4779"><h3>Breathwork</h3><p>Regulate the nervous system to stay clear and calm when pressure spikes, on demand.</p></div>
+        <div class="tcell" style="--c:#FF5A50"><h3>Visualisation</h3><p>Rehearse the version of you that performs, before the moment that demands it ever arrives.</p></div>
+        <div class="tcell" style="--c:#FF6A26"><h3>Mindset</h3><p>Turn the inner critic into the inner champion with practical, repeatable tools you keep for life.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SCIENCE -->
+  <section class="lm-sec" data-screen-label="The Science">
+    <div class="wrap sci">
+      <h2 data-reveal="left">The <span class="grad-text">science</span></h2>
+      <div data-reveal="right">
+        <p>NRJI is grounded in <strong>sports psychology, neuroscience and longevity research.</strong> It treats energy as a trainable resource, capacity you can build deliberately, the same way an athlete builds strength.</p>
+        <p>Fear, perfectionism and procrastination are not flaws. They are <strong>untrained responses to pressure</strong>, nervous-system patterns that can be retrained. By regulating the nervous system under real load, you expand the range in which you can think clearly and act with courage.</p>
+        <p>Attendees don't just move differently. They leave with <strong>embodied evidence</strong> that they are capable of more, energised, mentally sharper and more confident performing under pressure across every area of life.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICES -->
+  <section class="lm-sec" data-screen-label="Founding Voices">
+    <div class="wrap">
+      <div class="sec-head" data-reveal><h2>Founding member voices</h2></div>
+      <div class="quote-marquee" data-reveal>
+        <div class="quote-track">
+          <div class="tq"><p class="q">"I've never done anything like this. I think it's going to be the next really big thing."</p><div class="who"><span class="dot"></span><span class="nm">Giorgia</span></div></div>
+          <div class="tq"><p class="q">"I came in nervous. I left feeling like I could do anything."</p><div class="who"><span class="dot"></span><span class="nm">Holly</span></div></div>
+          <div class="tq"><p class="q">"I feel relaxed and energised at the same time. Never felt like that after a workout before."</p><div class="who"><span class="dot"></span><span class="nm">Geanine</span></div></div>
+          <div class="tq"><p class="q">"I feel unstoppable."</p><div class="who"><span class="dot"></span><span class="nm">Clare</span></div></div>
+          <div class="tq" aria-hidden="true"><p class="q">"I've never done anything like this. I think it's going to be the next really big thing."</p><div class="who"><span class="dot"></span><span class="nm">Giorgia</span></div></div>
+          <div class="tq" aria-hidden="true"><p class="q">"I came in nervous. I left feeling like I could do anything."</p><div class="who"><span class="dot"></span><span class="nm">Holly</span></div></div>
+          <div class="tq" aria-hidden="true"><p class="q">"I feel relaxed and energised at the same time. Never felt like that after a workout before."</p><div class="who"><span class="dot"></span><span class="nm">Geanine</span></div></div>
+          <div class="tq" aria-hidden="true"><p class="q">"I feel unstoppable."</p><div class="who"><span class="dot"></span><span class="nm">Clare</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="lm-cta" data-screen-label="CTA">
+    <h2 class="display" data-reveal>Come and <span class="grad-text">feel it.</span></h2>
+    <div class="row" data-reveal style="--rd:120ms">
+      <a class="btn btn-primary btn-lg" href="waitlist.html">Join the waitlist</a>
+      <a class="btn btn-blue btn-lg" href="https://www.instagram.com/nrjienergy" target="_blank" rel="noopener">Follow on Instagram</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" data-screen-label="Footer">
+    <div class="fwrap">
+      <div class="flinks">
+        <a href="index.html" style="color:#F4F4F7">Home</a>
+        <a href="waitlist.html" style="color:#FF6A26">Waitlist</a>
+        <a href="press.html" style="color:#FF2D8F">Press</a>
+        <a href="https://www.instagram.com/nrjienergy" target="_blank" rel="noopener" style="color:#1AA7FF">Instagram</a>
+      </div>
+      <div class="meta">
+        <div>
+          <div class="nm">Sophie Storm Roberts</div>
+          <div class="rl">Founder, NRJI · Adventure Athlete · TEDx Speaker</div>
+        </div>
+        <div class="sign grad-text">Energy is your edge</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nrji-interactive.js"></script>
+</body>
+</html>
