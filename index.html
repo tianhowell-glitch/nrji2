@@ -22,6 +22,7 @@
   }
   .hero-body{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;max-width:var(--maxw);width:100%;margin:0 auto;}
   .hero h1{font-size:clamp(36px,5.4vw,80px);max-width:none;line-height:1.0;}
+  .hero h1 .rotator{display:inline-block;transition:opacity .55s ease;will-change:opacity;}
   .hero h1 .grad-text{display:inline-block;}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-start;margin-top:clamp(34px,4vw,52px);}
 
@@ -37,13 +38,13 @@
   /* ===================== NRJI METHOD (FRAMEWORK IP) ===================== */
   .method-sec{background:transparent;}
   .method-sec .head{max-width:none;margin-bottom:clamp(40px,4.6vw,64px);}
-  .method-sec h2{font-size:var(--t-h1);margin:18px 0 22px;}
+  .method-sec h2{font-size:clamp(26px,4.2vw,52px);margin:18px 0 22px;}
   .method-sec .lead{font-size:var(--t-lead);line-height:1.5;max-width:58ch;}
   .frame{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
   .frame .stage{background:var(--ink);padding:clamp(26px,2.4vw,38px) clamp(22px,2vw,30px) clamp(30px,2.8vw,42px);position:relative;display:flex;flex-direction:column;}
   .frame .stage::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--c);}
   .frame .stage .step{font-size:var(--t-small);text-transform:uppercase;letter-spacing:.2em;font-weight:700;color:var(--fg-faint);}
-  .frame .stage h3{font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:clamp(26px,2.5vw,40px);line-height:0.98;margin:clamp(30px,4vw,60px) 0 14px;color:var(--c);}
+  .frame .stage h3{font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:clamp(18px,1.9vw,28px);line-height:0.98;margin:clamp(30px,4vw,60px) 0 14px;color:var(--c);white-space:nowrap;}
   .frame .stage p{font-size:var(--t-small);color:#D9D9E0;line-height:1.5;}
 
   /* ===================== FOUR PILLARS ===================== */
@@ -52,14 +53,14 @@
   .pillars-sec h2{font-size:var(--t-h1);margin:18px 0 20px;}
   .pillars-sec .lead{font-size:var(--t-lead);line-height:1.5;max-width:50ch;}
   .toolwall{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-  .toolwall .tool{background:var(--ink);padding:clamp(30px,3vw,48px) clamp(22px,2vw,30px);display:flex;align-items:center;justify-content:center;min-height:clamp(140px,15vw,220px);}
-  .toolwall .tool span{font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:clamp(20px,2.5vw,40px);line-height:1.0;text-align:center;color:var(--c);letter-spacing:-0.01em;overflow-wrap:anywhere;}
+  .toolwall .tool{background:var(--ink);padding:clamp(24px,3vw,48px) clamp(8px,1.4vw,24px);display:flex;align-items:center;justify-content:center;min-height:clamp(120px,15vw,220px);}
+  .toolwall .tool span{font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:clamp(13px,2.5vw,40px);line-height:1.0;text-align:center;color:var(--c);letter-spacing:-0.02em;white-space:nowrap;}
 
   /* ===================== WHY (REDUCED) ===================== */
   .mission{background:transparent;text-align:center;}
   .mission .inner{max-width:1000px;margin:0 auto;}
   .mission .eyebrow{justify-content:center;margin-bottom:clamp(26px,3vw,40px);}
-  .mission .big{font-family:var(--font-display);font-weight:800;text-transform:uppercase;line-height:1.0;font-size:clamp(30px,4.2vw,58px);}
+  .mission .big{font-family:var(--font-display);font-weight:800;text-transform:uppercase;line-height:1.04;font-size:clamp(24px,3.4vw,46px);}
   .mission p{font-size:var(--t-lead);line-height:1.55;max-width:60ch;margin:clamp(28px,3.2vw,44px) auto 0;}
   .mission p strong{color:#fff;font-weight:700;}
 
@@ -81,7 +82,7 @@
   .founder{background:rgba(8,8,12,.84);overflow:hidden;}
   .founder .banner{max-width:1080px;margin:0 auto clamp(46px,5vw,76px);text-align:center;}
   .founder .banner .eyebrow{justify-content:center;margin-bottom:clamp(22px,2.6vw,34px);}
-  .founder .banner .statement{font-family:var(--font-display);font-weight:800;text-transform:uppercase;line-height:1.02;font-size:clamp(26px,3.4vw,50px);padding:0;background:none;}
+  .founder .banner .statement{font-family:var(--font-display);font-weight:800;text-transform:uppercase;line-height:1.06;font-size:clamp(24px,3.2vw,46px);padding:0;background:none;}
   .founder .inner{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(36px,5vw,76px);align-items:stretch;}
   .founder .inner > *{min-width:0;}
   .founder .text{min-width:0;overflow:hidden;}
@@ -119,7 +120,6 @@
   /* ===================== RESPONSIVE ===================== */
   @media (max-width:900px){
     .frame{grid-template-columns:repeat(2,1fr);}
-    .toolwall{grid-template-columns:repeat(2,1fr);}
     .mission .inner{max-width:none;}
     .founder .inner{grid-template-columns:1fr;gap:36px;align-items:start;}
     .founder .photo-frame{aspect-ratio:3/3.6;height:auto;min-height:0;max-width:460px;margin:0 auto;}
@@ -130,9 +130,8 @@
     .hero-cta{flex-direction:row;flex-wrap:nowrap;gap:10px;align-items:stretch;width:100%;}
     .hero-cta .btn{flex:1 1 0;min-width:0;justify-content:center;text-align:center;padding:14px 10px;font-size:11px;line-height:1.2;letter-spacing:.04em;}
     .frame{grid-template-columns:1fr;}
-    .toolwall{grid-template-columns:repeat(2,1fr);}
-    .toolwall .tool{min-height:104px;padding:22px 10px;}
-    .toolwall .tool span{font-size:clamp(16px,4.4vw,22px);}
+    .toolwall .tool{min-height:84px;padding:18px 4px;}
+    .toolwall .tool span{font-size:clamp(10px,2.7vw,18px);letter-spacing:-0.03em;}
     .invite .paths{grid-template-columns:1fr;}
   }
 </style>
@@ -157,7 +156,7 @@
   <!-- ===================== HERO ===================== -->
   <header class="hero" data-screen-label="Hero">
     <div class="hero-body">
-      <h1 class="display" data-reveal style="--rd:160ms">Train your energy.<br><span class="grad-text">Unlock your edge.</span></h1>
+      <h1 class="display" data-reveal style="--rd:160ms"><span class="rotator">Train your energy.<br><span class="grad-text">Unlock your edge.</span></span></h1>
       <div class="hero-cta" data-reveal style="--rd:300ms">
         <a class="btn btn-primary btn-lg" href="waitlist.html">Join the waitlist</a>
       </div>
@@ -228,7 +227,7 @@
   <section class="pillars-sec" id="pillars" data-screen-label="The Four Tools">
     <div class="wrap head">
       <span class="eyebrow" data-reveal>The four tools</span>
-      <h2 class="display" data-reveal style="--rd:80ms">Four tools. One <span class="grad-ombre">inner champion.</span></h2>
+      <h2 class="display" data-reveal style="--rd:80ms">Four tools.<br>One <span class="grad-ombre">inner champion.</span></h2>
       <p class="lead" data-reveal style="--rd:160ms">Every session combines all four to transform your inner critic into your inner champion. <a href="learn-more.html" style="color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--fg-faint)">See how it works &rarr;</a></p>
     </div>
     <div class="wrap toolwall" data-reveal="scale">
@@ -318,5 +317,27 @@
   </footer>
 
   <script src="nrji-interactive.js"></script>
+  <script>
+  (function(){
+    var rot=document.querySelector('.hero h1 .rotator');
+    if(!rot) return;
+    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var quotes=[
+      'Train your energy.<br><span class="grad-text">Unlock your edge.</span>',
+      'Energy is the<br><span class="grad-text">edge you train.</span>',
+      'Stay clear under<br><span class="grad-text">pressure.</span>',
+      'Train it until<br><span class="grad-text">you trust it.</span>'
+    ];
+    var i=0;
+    setInterval(function(){
+      rot.style.opacity='0';
+      setTimeout(function(){
+        i=(i+1)%quotes.length;
+        rot.innerHTML=quotes[i];
+        rot.style.opacity='1';
+      },560);
+    },5000);
+  })();
+  </script>
 </body>
 </html>
